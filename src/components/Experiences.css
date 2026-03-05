@@ -1,0 +1,122 @@
+/* ================================================
+   EXPERIENCES SECTION
+   ================================================ */
+.experiences {
+    background: var(--clr-dark);
+    overflow: hidden;
+}
+
+.experiences-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.experiences-header .section-subtitle {
+    margin: 0 auto;
+}
+
+.exp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.exp-card {
+    position: relative;
+    height: 320px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.exp-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.exp-card:hover .exp-img {
+    transform: scale(1.1);
+}
+
+.exp-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(5, 12, 8, 0.9) 0%,
+            rgba(5, 12, 8, 0.3) 60%,
+            transparent 100%);
+}
+
+.exp-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 22px;
+}
+
+.exp-location {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clr-primary);
+    margin-bottom: 7px;
+}
+
+.exp-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--clr-white);
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.exp-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(200, 133, 58, 0.2);
+    border: 1px solid rgba(200, 133, 58, 0.3);
+    color: var(--clr-primary-light);
+    font-size: 0.75rem;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.exp-card:hover .exp-arrow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.exp-card:hover .exp-arrow:hover {
+    background: var(--clr-primary);
+    color: var(--clr-white);
+}
+
+@media (max-width: 1000px) {
+    .exp-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .exp-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .exp-card {
+        height: 260px;
+    }
+
+    .exp-arrow {
+        opacity: 1;
+        transform: none;
+    }
+}

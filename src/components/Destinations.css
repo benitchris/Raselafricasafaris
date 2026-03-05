@@ -1,0 +1,233 @@
+/* ================================================
+   DESTINATIONS SECTION
+   ================================================ */
+.destinations {
+    background: var(--clr-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.destinations::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    width: 60%;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(42, 92, 63, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.destinations-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.destinations-header .section-subtitle {
+    margin: 0 auto;
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+}
+
+.dest-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.dest-card:first-child {
+    grid-column: span 2;
+    min-height: 380px;
+}
+
+.dest-card:not(:first-child) {
+    min-height: 280px;
+}
+
+.dest-img {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dest-card:hover .dest-img {
+    transform: scale(1.08);
+}
+
+.dest-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(8, 16, 10, 0.92) 0%,
+            rgba(8, 16, 10, 0.4) 50%,
+            rgba(8, 16, 10, 0.1) 100%);
+    transition: var(--transition);
+}
+
+.dest-card:hover .dest-overlay {
+    background: linear-gradient(to top,
+            rgba(8, 16, 10, 0.95) 0%,
+            rgba(8, 16, 10, 0.55) 55%,
+            rgba(8, 16, 10, 0.15) 100%);
+}
+
+.dest-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 28px;
+    transform: translateY(8px);
+    transition: transform 0.35s ease;
+}
+
+.dest-card:hover .dest-content {
+    transform: translateY(0);
+}
+
+.dest-country {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clr-primary);
+    margin-bottom: 8px;
+}
+
+.dest-name {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--clr-white);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.dest-card:first-child .dest-name {
+    font-size: 2rem;
+}
+
+.dest-desc {
+    font-size: 0.875rem;
+    color: rgba(232, 228, 220, 0.75);
+    line-height: 1.65;
+    margin-bottom: 18px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.dest-card:hover .dest-desc {
+    max-height: 80px;
+    opacity: 1;
+}
+
+.dest-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--clr-primary-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s, color 0.2s;
+}
+
+.dest-card:hover .dest-link {
+    opacity: 1;
+    transform: none;
+}
+
+.dest-link:hover {
+    color: var(--clr-white);
+}
+
+.dest-link i {
+    font-size: 0.75rem;
+    transition: transform 0.25s ease;
+}
+
+.dest-link:hover i {
+    transform: translateX(4px);
+}
+
+/* Tag chips */
+.dest-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.dest-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(200, 133, 58, 0.15);
+    border: 1px solid rgba(200, 133, 58, 0.25);
+    color: var(--clr-primary-light);
+    padding: 3px 10px;
+    border-radius: 50px;
+}
+
+@media (max-width: 900px) {
+    .destinations-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dest-card:first-child {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .destinations-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .dest-card:first-child {
+        grid-column: span 1;
+        min-height: 280px;
+    }
+
+    .dest-card:not(:first-child) {
+        min-height: 240px;
+    }
+
+    /* Always show content on touch (no hover) */
+    .dest-desc {
+        max-height: 80px;
+        opacity: 1;
+    }
+
+    .dest-link {
+        opacity: 1;
+        transform: none;
+    }
+
+    .dest-content {
+        transform: none;
+    }
+
+    .dest-name {
+        font-size: 1.3rem;
+    }
+
+    .dest-card:first-child .dest-name {
+        font-size: 1.5rem;
+    }
+}

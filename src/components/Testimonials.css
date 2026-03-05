@@ -1,0 +1,207 @@
+/* ================================================
+   TESTIMONIALS & CTA SECTION
+   ================================================ */
+
+/* --- Testimonials --- */
+.testimonials {
+    background: var(--clr-dark-2);
+    overflow: hidden;
+}
+
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.testimonials-header .section-subtitle {
+    margin: 0 auto;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.testi-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.testi-card::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    right: 26px;
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    color: rgba(200, 133, 58, 0.12);
+    line-height: 1;
+}
+
+.testi-card:hover {
+    border-color: rgba(200, 133, 58, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+}
+
+.testi-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 18px;
+}
+
+.testi-stars i {
+    color: var(--clr-primary);
+    font-size: 0.9rem;
+}
+
+.testi-text {
+    font-size: 0.95rem;
+    color: var(--clr-text-muted);
+    line-height: 1.78;
+    margin-bottom: 26px;
+    font-style: italic;
+}
+
+.testi-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.testi-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-green));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--clr-white);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.testi-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--clr-white);
+    margin-bottom: 3px;
+}
+
+.testi-origin {
+    font-size: 0.78rem;
+    color: var(--clr-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.testi-origin i {
+    font-size: 0.7rem;
+    color: var(--clr-primary);
+}
+
+/* --- CTA BANNER --- */
+.cta-banner {
+    position: relative;
+    overflow: hidden;
+    background-image: url('../assets/lake-bunyonyi2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    /* fixed breaks on iOS Safari */
+}
+
+.cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(8, 16, 10, 0.92), rgba(42, 92, 63, 0.82));
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 110px 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-content .section-title {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+}
+
+.cta-content .section-subtitle {
+    margin: 0 auto 40px;
+    font-size: 1.05rem;
+    max-width: 520px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-contact {
+    margin-top: 28px;
+    font-size: 0.88rem;
+    color: rgba(232, 228, 220, 0.6);
+}
+
+.cta-contact a {
+    color: var(--clr-primary-light);
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.cta-contact a:hover {
+    color: var(--clr-white);
+}
+
+@media (max-width: 900px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-content {
+        padding: 80px 0;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-content {
+        padding: 60px 0;
+    }
+
+    .testi-card {
+        padding: 24px 20px;
+    }
+}

@@ -1,0 +1,290 @@
+/* ================================================
+   NAVBAR
+   ================================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 24px 0;
+    transition: var(--transition);
+    background: rgba(30, 40, 35, 0.45);
+    /* Semi-transparent grayish forest mask */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar.scrolled {
+    background: rgba(15, 25, 20, 0.88);
+    /* Darker grayish on scroll */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(200, 133, 58, 0.2);
+    padding: 12px 0;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.nav-logo-img {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.nav-logo-img:hover {
+    transform: scale(1.04);
+    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.55));
+}
+
+.nav-brand-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 14px;
+    line-height: 1;
+}
+
+.brand-main {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    color: #FDFBF7;
+    /* Luxurious Ivory/Cream for high-end contrast */
+    letter-spacing: 0.01em;
+    margin-bottom: 2px;
+}
+
+.brand-sub {
+    font-family: var(--font-body);
+    font-size: clamp(0.6rem, 1vw, 0.75rem);
+    font-weight: 600;
+    color: var(--clr-primary);
+    /* Brand Gold */
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+    .nav-brand-text {
+        margin-left: 10px;
+        max-width: 120px;
+    }
+
+    .brand-main {
+        font-size: 0.95rem;
+    }
+
+    .brand-sub {
+        font-size: 0.55rem;
+        letter-spacing: 0.12em;
+    }
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--clr-primary);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-links a:hover {
+    color: var(--clr-white);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.nav-phone {
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--clr-primary-light);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.nav-phone i {
+    font-size: 0.8rem;
+}
+
+/* Hamburger */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    padding: 10px;
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(200, 133, 58, 0.2);
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--clr-white);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.nav-hamburger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(200, 133, 58, 0.35);
+}
+
+.nav-hamburger.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile menu */
+.nav-mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(10, 20, 14, 0.97);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(200, 133, 58, 0.15);
+    padding: 24px;
+    gap: 20px;
+    animation: fadeDown 0.3s ease;
+}
+
+.nav-mobile-menu.open {
+    display: flex;
+}
+
+.nav-mobile-menu a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: var(--transition);
+}
+
+.nav-mobile-menu a:hover {
+    color: var(--clr-primary);
+    padding-left: 8px;
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+
+    .nav-links,
+    .nav-cta {
+        display: none;
+    }
+
+    .nav-hamburger {
+        display: flex;
+    }
+}
+
+/* WhatsApp button in mobile menu */
+.mobile-wa-btn {
+    background: #25D366;
+    color: var(--clr-white) !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+}
+
+.mobile-wa-btn i {
+    color: var(--clr-white);
+}
+
+@media (max-width: 640px) {
+    .nav-mobile-menu .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* No horizontal shift for centered buttons on hover */
+.nav-mobile-menu .btn:hover {
+    padding-left: 0 !important;
+    transform: translateY(-2px);
+}
+
+.mobile-wa-btn:hover {
+    background: #1ebe5a;
+}
+
+.mobile-wa-btn i {
+    font-size: 1.05rem;
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 16px 0;
+    }
+
+    .navbar.scrolled {
+        padding: 10px 0;
+    }
+
+    .nav-logo-img {
+        height: 44px;
+    }
+}

@@ -1,0 +1,265 @@
+/* ================================================
+   BOOKING FORM SECTION
+   ================================================ */
+.booking {
+    background: var(--clr-dark-2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background elements for visual interest */
+.booking::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(200, 133, 58, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.booking::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(200, 133, 58, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.booking-info .section-title {
+    margin-bottom: 24px;
+}
+
+.booking-info .section-subtitle {
+    margin-bottom: 48px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+/* Contact display beside form */
+.booking-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(200, 133, 58, 0.12);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-primary);
+    font-size: 1.4rem;
+    transition: var(--transition);
+}
+
+.contact-item:hover .contact-icon {
+    transform: translateY(-5px);
+    background: var(--clr-primary);
+    color: var(--clr-white);
+}
+
+.contact-label {
+    font-size: 0.85rem;
+    color: var(--clr-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.contact-value {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #FDFBF7;
+    transition: var(--transition);
+}
+
+.contact-value:hover {
+    color: var(--clr-primary-light);
+}
+
+/* The actual form card */
+.booking-card {
+    background: rgba(18, 30, 24, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--clr-text);
+    margin-left: 4px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: var(--clr-white);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--clr-primary);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(200, 133, 58, 0.15);
+}
+
+.form-group select option {
+    background: var(--clr-dark);
+    color: var(--clr-white);
+}
+
+.btn-block {
+    width: 100%;
+    justify-content: center;
+    padding: 18px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* Success & Error display */
+.form-success,
+.form-error {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    animation: fadeIn 0.4s ease;
+}
+
+.form-success {
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    color: #4ade80;
+}
+
+.form-error {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================================
+   RESPONSIVE BOOKING FORM
+   ================================================ */
+@media (max-width: 1024px) {
+    .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .booking-info {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .booking-info .section-subtitle {
+        margin: 0 auto 40px;
+    }
+
+    .booking-contacts {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .booking-card {
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .booking-contacts {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .contact-item {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+}
