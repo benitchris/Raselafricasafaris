@@ -1,0 +1,313 @@
+/* ================================================
+   CORE VALUES SECTION
+   ================================================ */
+
+.core-values {
+    background: linear-gradient(
+        180deg,
+        var(--clr-dark) 0%,
+        var(--clr-dark-2) 40%,
+        var(--clr-dark-3) 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background shapes */
+.core-values::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(200, 133, 58, 0.07) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.core-values::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(42, 92, 63, 0.1) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+/* ---- Header ---- */
+.cv-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.cv-subtitle {
+    max-width: 640px;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+/* ---- Grid ---- */
+.cv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---- Cards ---- */
+.cv-card {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: default;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s ease;
+}
+
+.cv-card:hover {
+    transform: translateY(-10px);
+}
+
+.cv-card-inner {
+    background: rgba(18, 34, 24, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius-md);
+    padding: 36px 28px 32px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.35s ease, background 0.35s ease;
+}
+
+.cv-card:hover .cv-card-inner {
+    background: rgba(22, 42, 30, 0.9);
+}
+
+/* Card corner shimmer */
+.cv-card-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 0 var(--radius-md) 0 100%;
+    opacity: 0.06;
+    transition: opacity 0.4s ease;
+}
+
+.cv-card:hover .cv-card-inner::before {
+    opacity: 0.14;
+}
+
+/* ---- Color Variants ---- */
+/* Green */
+.cv-card--green .cv-icon-wrap { background: rgba(42, 92, 63, 0.25); color: #4caf7d; }
+.cv-card--green .cv-card-inner::before { background: #4caf7d; }
+.cv-card--green:hover .cv-card-inner { border-color: rgba(76, 175, 125, 0.35); }
+.cv-card--green .cv-accent-line { background: linear-gradient(90deg, #4caf7d, transparent); }
+.cv-card--green .cv-number { color: rgba(76, 175, 125, 0.18); }
+.cv-card--green .cv-title { color: #a8e6c4; }
+
+/* Amber */
+.cv-card--amber .cv-icon-wrap { background: rgba(200, 133, 58, 0.2); color: var(--clr-primary); }
+.cv-card--amber .cv-card-inner::before { background: var(--clr-primary); }
+.cv-card--amber:hover .cv-card-inner { border-color: rgba(200, 133, 58, 0.35); }
+.cv-card--amber .cv-accent-line { background: linear-gradient(90deg, var(--clr-primary), transparent); }
+.cv-card--amber .cv-number { color: rgba(200, 133, 58, 0.18); }
+.cv-card--amber .cv-title { color: var(--clr-primary-light); }
+
+/* Gold */
+.cv-card--gold .cv-icon-wrap { background: rgba(232, 196, 90, 0.18); color: #e8c45a; }
+.cv-card--gold .cv-card-inner::before { background: #e8c45a; }
+.cv-card--gold:hover .cv-card-inner { border-color: rgba(232, 196, 90, 0.35); }
+.cv-card--gold .cv-accent-line { background: linear-gradient(90deg, #e8c45a, transparent); }
+.cv-card--gold .cv-number { color: rgba(232, 196, 90, 0.18); }
+.cv-card--gold .cv-title { color: #f0d87a; }
+
+/* Teal */
+.cv-card--teal .cv-icon-wrap { background: rgba(32, 178, 170, 0.18); color: #3dd4cc; }
+.cv-card--teal .cv-card-inner::before { background: #3dd4cc; }
+.cv-card--teal:hover .cv-card-inner { border-color: rgba(61, 212, 204, 0.35); }
+.cv-card--teal .cv-accent-line { background: linear-gradient(90deg, #3dd4cc, transparent); }
+.cv-card--teal .cv-number { color: rgba(61, 212, 204, 0.18); }
+.cv-card--teal .cv-title { color: #7ee8e3; }
+
+/* Rose */
+.cv-card--rose .cv-icon-wrap { background: rgba(220, 90, 110, 0.18); color: #e87c90; }
+.cv-card--rose .cv-card-inner::before { background: #e87c90; }
+.cv-card--rose:hover .cv-card-inner { border-color: rgba(232, 124, 144, 0.35); }
+.cv-card--rose .cv-accent-line { background: linear-gradient(90deg, #e87c90, transparent); }
+.cv-card--rose .cv-number { color: rgba(232, 124, 144, 0.18); }
+.cv-card--rose .cv-title { color: #f0aab6; }
+
+/* ---- Card Elements ---- */
+.cv-number {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.cv-icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    transition: transform 0.35s ease;
+}
+
+.cv-card:hover .cv-icon-wrap {
+    transform: scale(1.12) rotate(-4deg);
+}
+
+.cv-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.cv-desc {
+    font-size: 0.9rem;
+    color: var(--clr-text-muted);
+    line-height: 1.75;
+    flex: 1;
+}
+
+.cv-accent-line {
+    height: 2px;
+    border-radius: 2px;
+    margin-top: 4px;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.cv-card:hover .cv-accent-line {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+/* ---- Pledge Banner ---- */
+.cv-pledge {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+}
+
+.cv-pledge-inner {
+    background: linear-gradient(135deg, rgba(200, 133, 58, 0.12) 0%, rgba(42, 92, 63, 0.18) 100%);
+    border: 1px solid rgba(200, 133, 58, 0.25);
+    border-radius: var(--radius-lg);
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cv-pledge-inner:hover {
+    border-color: rgba(200, 133, 58, 0.45);
+    box-shadow: 0 20px 60px rgba(200, 133, 58, 0.12);
+}
+
+.cv-pledge-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(200, 133, 58, 0.04));
+    pointer-events: none;
+}
+
+.cv-pledge-icon {
+    font-size: 3.2rem;
+    color: var(--clr-primary);
+    flex-shrink: 0;
+    animation: pledgePulse 3s ease-in-out infinite;
+}
+
+@keyframes pledgePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.08); opacity: 0.8; }
+}
+
+.cv-pledge-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--clr-white);
+    margin-bottom: 12px;
+}
+
+.cv-pledge-text {
+    font-size: 0.97rem;
+    color: var(--clr-text-muted);
+    line-height: 1.8;
+    max-width: 760px;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 1024px) {
+    .cv-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cv-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .cv-pledge-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+        gap: 20px;
+    }
+
+    .cv-pledge-icon {
+        font-size: 2.4rem;
+    }
+
+    .cv-header {
+        margin-bottom: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cv-card-inner {
+        padding: 28px 22px 24px;
+    }
+
+    .cv-number {
+        font-size: 3rem;
+    }
+
+    .cv-pledge-inner {
+        padding: 28px 18px;
+    }
+}

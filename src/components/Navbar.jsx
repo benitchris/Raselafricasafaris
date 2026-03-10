@@ -6,6 +6,7 @@ const navLinks = [
     { label: 'Tours', href: '#tours' },
     { label: 'Experiences', href: '#experiences' },
     { label: 'About Us', href: '#about' },
+    { label: 'Core Values', href: '#core-values' },
     { label: 'Contact', href: '#contact' },
 ];
 

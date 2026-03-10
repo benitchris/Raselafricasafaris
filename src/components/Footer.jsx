@@ -6,6 +6,7 @@ const quickLinks = [
     { label: 'Tours', href: '#tours' },
     { label: 'Experiences', href: '#experiences' },
     { label: 'About Us', href: '#about' },
+    { label: 'Our Values', href: '#core-values' },
 ];
 
 const safariLinks = [

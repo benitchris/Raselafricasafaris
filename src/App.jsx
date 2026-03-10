@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import CoreValues from './components/CoreValues';
 import Destinations from './components/Destinations';
 import Tours from './components/Tours';
 import Experiences from './components/Experiences';
@@ -40,6 +41,7 @@ export default function App() {
             <main>
                 <Hero />
                 <div className="reveal"><About /></div>
+                <div className="reveal"><CoreValues /></div>
                 <div className="reveal"><Destinations /></div>
                 <div className="reveal"><Tours /></div>
                 <div className="reveal"><Experiences /></div>
