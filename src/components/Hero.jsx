@@ -1,4 +1,5 @@
-import heroImg from '../assets/hero.png';
+import { Link } from 'react-router-dom';
+import heroImg from '../assets/hero.webp';
 import './Hero.css';
 
 const stats = [
@@ -33,14 +34,14 @@ export default function Hero() {
                     </p>
 
                     <div className="hero-buttons">
-                        <a href="#destinations" className="btn btn-primary" id="hero-explore-btn">
+                        <Link to="/destinations" className="btn btn-primary" id="hero-explore-btn">
                             <i className="fas fa-compass"></i>
                             Explore Destinations
-                        </a>
-                        <a href="#tours" className="btn btn-ghost" id="hero-tours-btn">
+                        </Link>
+                        <Link to="/tours" className="btn btn-ghost" id="hero-tours-btn">
                             <i className="fas fa-binoculars"></i>
                             View Packages
-                        </a>
+                        </Link>
                     </div>
                 </div>
 

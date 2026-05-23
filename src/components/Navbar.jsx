@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 const navLinks = [
-    { label: 'Destinations', href: '#destinations' },
-    { label: 'Tours', href: '#tours' },
-    { label: 'Experiences', href: '#experiences' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Core Values', href: '#core-values' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', to: '/' },
+    { label: 'Destinations', to: '/destinations' },
+    { label: 'Tours', to: '/tours' },
+    { label: 'Experiences', to: '/experiences' },
+    { label: 'About Us', to: '/about' },
+    { label: 'Book Now', to: '/book' },
 ];
 
 export default function Navbar() {
@@ -27,7 +28,7 @@ export default function Navbar() {
             <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
                 <div className="container navbar-inner">
                     {/* Logo */}
-                    <a href="#home" className="nav-logo">
+                    <Link to="/" className="nav-logo" onClick={handleLink}>
                         <img
                             src={`${import.meta.env.BASE_URL}logo.png`}
                             alt="Rasel Africa Safaris"
@@ -37,13 +38,15 @@ export default function Navbar() {
                             <span className="brand-main">Rasel Africa</span>
                             <span className="brand-sub">Safaris</span>
                         </div>
-                    </a>
+                    </Link>
 
                     {/* Desktop Links */}
                     <ul className="nav-links">
                         {navLinks.map(l => (
-                            <li key={l.href}>
-                                <a href={l.href}>{l.label}</a>
+                            <li key={l.to}>
+                                <NavLink to={l.to} end={l.to === '/'}>
+                                    {l.label}
+                                </NavLink>
                             </li>
                         ))}
                     </ul>
@@ -54,9 +57,9 @@ export default function Navbar() {
                             <i className="fab fa-whatsapp"></i>
                             +256 755 623 922
                         </span>
-                        <a href="#contact" className="btn btn-primary" id="nav-book-btn">
+                        <Link to="/book" className="btn btn-primary" id="nav-book-btn">
                             Book a Safari
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Hamburger */}
@@ -75,7 +78,9 @@ export default function Navbar() {
                 {/* Mobile Menu */}
                 <div className={`nav-mobile-menu${menuOpen ? ' open' : ''}`}>
                     {navLinks.map(l => (
-                        <a key={l.href} href={l.href} onClick={handleLink}>{l.label}</a>
+                        <NavLink key={l.to} to={l.to} end={l.to === '/'} onClick={handleLink}>
+                            {l.label}
+                        </NavLink>
                     ))}
                     <a
                         href="https://wa.me/256755623922?text=Hello!%20I%20would%20like%20to%20enquire%20about%20a%20safari%20package."
@@ -87,9 +92,9 @@ export default function Navbar() {
                         <i className="fab fa-whatsapp"></i>
                         WhatsApp Us
                     </a>
-                    <a href="#contact" className="btn btn-primary" onClick={handleLink}>
+                    <Link to="/book" className="btn btn-primary" onClick={handleLink}>
                         Book a Safari
-                    </a>
+                    </Link>
                 </div>
             </nav>
         </header>

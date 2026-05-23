@@ -1,9 +1,15 @@
-import gorillaImg from '../assets/gorilla2.jpg';
-import kenyaImg from '../assets/lions.jpg';
-import eastAfricaImg from '../assets/chimpanzee1.jpg';
-import serengetiImg from '../assets/gazelle.jpg';
-import rwandaImg from '../assets/gorilla4.jpg';
-import tanzaniaImg from '../assets/sunset-in-savanna.jpg';
+import { Link } from 'react-router-dom';
+import gorillaImg from '../assets/gorilla2.webp';
+import kenyaImg from '../assets/lions.webp';
+import eastAfricaImg from '../assets/chimpanzee1.webp';
+import serengetiImg from '../assets/gazelle.webp';
+import rwandaImg from '../assets/gorilla4.webp';
+import tanzaniaImg from '../assets/sunset-in-savanna.webp';
+import zanzibarImg from '../assets/zanzibar.webp';
+import rwenzoriImg from '../assets/rwenzori.webp';
+import masaiImg from '../assets/masai.webp';
+import kigaliImg from '../assets/kigali.webp';
+import jinjaImg from '../assets/jinja.webp';
 import './Tours.css';
 
 const tours = [
@@ -41,7 +47,7 @@ const tours = [
         duration: '9 Days',
         badge: 'Exclusive',
         tags: ['Migration', 'Ngorongoro', 'Luxury Camp'],
-        image: serengetiImg,
+        image: masaiImg,
     },
     {
         name: '5-Day Rwanda & Congo Gorilla Trek',
@@ -59,7 +65,34 @@ const tours = [
         duration: '10 Days',
         badge: 'Honeymoon',
         tags: ['Romantic', 'Zanzibar', 'Beach & Bush'],
-        image: tanzaniaImg,
+        image: zanzibarImg,
+    },
+    {
+        name: '7-Day Rwenzori Mountains Trek',
+        location: 'Rwenzori, Uganda',
+        desc: 'Conquer the legendary Mountains of the Moon. A challenging but rewarding trek through diverse vegetation zones to the stunning glacier peaks.',
+        duration: '7 Days',
+        badge: 'Adventure',
+        tags: ['Mountains', 'Hiking', 'Nature'],
+        image: rwenzoriImg,
+    },
+    {
+        name: '2-Day Kigali City Tour',
+        location: 'Kigali, Rwanda',
+        desc: 'Experience the vibrant culture and history of Kigali. Visit local markets, art galleries, and important historical sites in one of Africa\'s cleanest cities.',
+        duration: '2 Days',
+        badge: 'City Tour',
+        tags: ['Culture', 'History', 'City'],
+        image: kigaliImg,
+    },
+    {
+        name: '2-Day Jinja Adventure',
+        location: 'Jinja, Uganda',
+        desc: 'Visit the adventure capital of East Africa. Experience the thrill of white-water rafting on the Nile, bungee jumping, and a boat cruise to the source of the river.',
+        duration: '2 Days',
+        badge: 'Adventure',
+        tags: ['Rafting', 'Nile', 'Bungee'],
+        image: jinjaImg,
     },
 ];
 
@@ -101,9 +134,9 @@ export default function Tours() {
                                     ))}
                                 </div>
                                 <div className="tour-footer">
-                                    <a href="#contact" className="btn-tour" id={`tour-btn-${i}`} style={{ width: '100%', justifyContent: 'center' }}>
-                                        Get a Quote <i className="fas fa-arrow-right"></i>
-                                    </a>
+                                     <Link to="/book" className="btn-tour" id={`tour-btn-${i}`} style={{ width: '100%', justifyContent: 'center' }}>
+                                         Get a Quote <i className="fas fa-arrow-right"></i>
+                                     </Link>
                                 </div>
                             </div>
                         </div>

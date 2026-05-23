@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -15,7 +16,13 @@ const WA_NUMBER = '256755623922';
 const WA_MESSAGE = encodeURIComponent('Hello! I would like to enquire about a safari package.');
 
 export default function App() {
+    const location = useLocation();
+
     useEffect(() => {
+        // Scroll to top instantly on page navigation
+        window.scrollTo(0, 0);
+
+        // Re-run the reveal animations intersection observer
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -30,23 +37,48 @@ export default function App() {
         }, observerOptions);
 
         const revealElements = document.querySelectorAll('.reveal');
-        revealElements.forEach(el => observer.observe(el));
+        revealElements.forEach(el => {
+            el.classList.remove('active');
+            observer.observe(el);
+        });
 
         return () => observer.disconnect();
-    }, []);
+    }, [location.pathname]);
+
+    const isHome = location.pathname === '/';
 
     return (
         <>
             <Navbar />
-            <main>
-                <Hero />
-                <div className="reveal"><About /></div>
-                <div className="reveal"><CoreValues /></div>
-                <div className="reveal"><Destinations /></div>
-                <div className="reveal"><Tours /></div>
-                <div className="reveal"><Experiences /></div>
-                <div className="reveal"><Testimonials /></div>
-                <div className="reveal"><BookingForm /></div>
+            <main className={isHome ? '' : 'subpage-main'}>
+                <Routes>
+                    <Route path="/" element={
+                        <>
+                            <Hero />
+                            <div className="reveal"><Destinations /></div>
+                            <div className="reveal"><Tours /></div>
+                            <div className="reveal"><Testimonials /></div>
+                        </>
+                    } />
+                    <Route path="/about" element={
+                        <>
+                            <div className="reveal"><About /></div>
+                            <div className="reveal"><CoreValues /></div>
+                        </>
+                    } />
+                    <Route path="/destinations" element={
+                        <div className="reveal"><Destinations /></div>
+                    } />
+                    <Route path="/tours" element={
+                        <div className="reveal"><Tours /></div>
+                    } />
+                    <Route path="/experiences" element={
+                        <div className="reveal"><Experiences /></div>
+                    } />
+                    <Route path="/book" element={
+                        <div className="reveal"><BookingForm /></div>
+                    } />
+                </Routes>
             </main>
             <Footer />
 

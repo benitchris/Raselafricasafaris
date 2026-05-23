@@ -1,5 +1,6 @@
-import aboutMainImg from '../assets/giraffe.jpg';
-import aboutAccentImg from '../assets/gorilla1.jpg';
+import { Link } from 'react-router-dom';
+import aboutMainImg from '../assets/giraffe.webp';
+import aboutAccentImg from '../assets/gorilla1.webp';
 import './About.css';
 
 const features = [
@@ -62,10 +63,10 @@ export default function About() {
                             ))}
                         </div>
 
-                        <a href="#contact" className="btn btn-primary" id="about-enquire-btn">
+                        <Link to="/book" className="btn btn-primary" id="about-enquire-btn">
                             <i className="fas fa-paper-plane"></i>
                             Send an Enquiry
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

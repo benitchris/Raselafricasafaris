@@ -1,8 +1,9 @@
-import ugandaImg from '../assets/Bwindi-Impenetrable-National-Park.jpg';
-import kenyaImg from '../assets/lion2.jpg';
-import rwandaImg from '../assets/forest.jpg';
-import tanzaniaImg from '../assets/buffalo1.jpg';
-import congoImg from '../assets/monkey.jpg';
+import { Link } from 'react-router-dom';
+import ugandaImg from '../assets/Bwindi-Impenetrable-National-Park.webp';
+import kenyaImg from '../assets/lion2.webp';
+import rwandaImg from '../assets/forest.webp';
+import tanzaniaImg from '../assets/buffalo1.webp';
+import congoImg from '../assets/monkey.webp';
 import './Destinations.css';
 
 const destinations = [
@@ -84,9 +85,9 @@ export default function Destinations() {
                                     </div>
                                 )}
                                 <p className="dest-desc">{d.desc}</p>
-                                <a href="#tours" className="dest-link">
+                                <Link to="/tours" className="dest-link">
                                     Explore Tours <i className="fas fa-arrow-right"></i>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     ))}

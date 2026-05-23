@@ -131,6 +131,19 @@
     width: 100%;
 }
 
+.nav-links a.active {
+    color: var(--clr-primary);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-mobile-menu a.active {
+    color: var(--clr-primary) !important;
+    padding-left: 8px;
+}
+
 .nav-cta {
     display: flex;
     align-items: center;

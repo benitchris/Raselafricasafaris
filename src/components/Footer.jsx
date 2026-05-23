@@ -1,20 +1,20 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const quickLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Destinations', href: '#destinations' },
-    { label: 'Tours', href: '#tours' },
-    { label: 'Experiences', href: '#experiences' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Our Values', href: '#core-values' },
+    { label: 'Home', to: '/' },
+    { label: 'Destinations', to: '/destinations' },
+    { label: 'Tours', to: '/tours' },
+    { label: 'Experiences', to: '/experiences' },
+    { label: 'About Us', to: '/about' },
 ];
 
 const safariLinks = [
-    { label: 'Gorilla Trekking', href: '#tours' },
-    { label: 'Big 5 Safaris', href: '#tours' },
-    { label: 'Great Migration', href: '#tours' },
-    { label: 'Honeymoon Safaris', href: '#tours' },
-    { label: 'Cultural Tours', href: '#experiences' },
+    { label: 'Gorilla Trekking', to: '/tours' },
+    { label: 'Big 5 Safaris', to: '/tours' },
+    { label: 'Great Migration', to: '/tours' },
+    { label: 'Honeymoon Safaris', to: '/tours' },
+    { label: 'Cultural Tours', to: '/experiences' },
 ];
 
 export default function Footer() {
@@ -39,13 +39,13 @@ export default function Footer() {
                             </p>
                             <div className="footer-socials">
                                 {[
-                                    { icon: 'fab fa-facebook-f', href: '#' },
-                                    { icon: 'fab fa-instagram', href: '#' },
-                                    { icon: 'fab fa-twitter', href: '#' },
+                                    { icon: 'fab fa-facebook-f', href: 'https://www.facebook.com/share/1LUWhcbeSz/' },
+                                    { icon: 'fab fa-instagram', href: 'https://www.instagram.com/raselafricasafaris?igsh=dWl3cXJ0a3I3ZzVh' },
+                                    { icon: 'fab fa-tiktok', href: 'https://www.tiktok.com/@senaeadventuresz?_r=1&_t=ZS-94a3SbcFFje' },
                                     { icon: 'fab fa-youtube', href: '#' },
                                     { icon: 'fab fa-tripadvisor', href: '#' },
                                 ].map((s, i) => (
-                                    <a href={s.href} className="social-link" key={i} aria-label="Social media link">
+                                    <a href={s.href} className="social-link" key={i} aria-label="Social media link" target="_blank" rel="noopener noreferrer">
                                         <i className={s.icon}></i>
                                     </a>
                                 ))}
@@ -57,7 +57,7 @@ export default function Footer() {
                             <h4>Quick Links</h4>
                             <ul className="footer-links">
                                 {quickLinks.map(l => (
-                                    <li key={l.href}><a href={l.href}>{l.label}</a></li>
+                                    <li key={l.to}><Link to={l.to}>{l.label}</Link></li>
                                 ))}
                             </ul>
                         </div>
@@ -67,7 +67,7 @@ export default function Footer() {
                             <h4>Safari Types</h4>
                             <ul className="footer-links">
                                 {safariLinks.map(l => (
-                                    <li key={l.label}><a href={l.href}>{l.label}</a></li>
+                                    <li key={l.label}><Link to={l.to}>{l.label}</Link></li>
                                 ))}
                             </ul>
                         </div>
@@ -111,9 +111,9 @@ export default function Footer() {
                 <div className="footer-bottom">
                     <p>© {new Date().getFullYear()} Rasel Africa Safaris. All rights reserved.</p>
                     <div className="footer-bottom-links">
-                        <a href="#home">Privacy Policy</a>
-                        <a href="#home">Terms &amp; Conditions</a>
-                        <a href="#home">Cookie Policy</a>
+                        <Link to="/">Privacy Policy</Link>
+                        <Link to="/">Terms &amp; Conditions</Link>
+                        <Link to="/">Cookie Policy</Link>
                     </div>
                 </div>
             </div>

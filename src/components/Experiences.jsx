@@ -1,7 +1,7 @@
-import gorillaImg from '../assets/gorilla.png';
-import migrationImg from '../assets/sunset-in-savanna.jpg';
-import raftingImg from '../assets/splashing-river.jpg';
-import cultureImg from '../assets/lake-bunyonyi.jpg';
+import gorillaImg from '../assets/gorilla.webp';
+import migrationImg from '../assets/sunset-in-savanna.webp';
+import raftingImg from '../assets/splashing-river.webp';
+import cultureImg from '../assets/lake-bunyonyi.webp';
 import './Experiences.css';
 
 const experiences = [

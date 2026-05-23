@@ -95,3 +95,14 @@ main {
         /* avoid tooltip overlap on mobile */
     }
 }
+
+/* Subpage padding to offset fixed navbar */
+.subpage-main {
+    padding-top: 104px;
+}
+
+@media (max-width: 900px) {
+    .subpage-main {
+        padding-top: 80px;
+    }
+}
