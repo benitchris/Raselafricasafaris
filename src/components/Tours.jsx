@@ -134,7 +134,7 @@ export default function Tours() {
                                     ))}
                                 </div>
                                 <div className="tour-footer">
-                                     <Link to="/book" className="btn-tour" id={`tour-btn-${i}`} style={{ width: '100%', justifyContent: 'center' }}>
+                                     <Link to="/contact" className="btn-tour" id={`tour-btn-${i}`} style={{ width: '100%', justifyContent: 'center' }}>
                                          Get a Quote <i className="fas fa-arrow-right"></i>
                                      </Link>
                                 </div>

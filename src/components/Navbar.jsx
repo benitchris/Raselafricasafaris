@@ -3,12 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 const navLinks = [
-    { label: 'Home', to: '/' },
     { label: 'Destinations', to: '/destinations' },
     { label: 'Tours', to: '/tours' },
     { label: 'Experiences', to: '/experiences' },
     { label: 'About Us', to: '/about' },
-    { label: 'Book Now', to: '/book' },
+    { label: 'Core Values', to: '/core-values' },
+    { label: 'Contact', to: '/contact' },
 ];
 
 export default function Navbar() {
@@ -57,7 +57,7 @@ export default function Navbar() {
                             <i className="fab fa-whatsapp"></i>
                             +256 755 623 922
                         </span>
-                        <Link to="/book" className="btn btn-primary" id="nav-book-btn">
+                        <Link to="/contact" className="btn btn-primary" id="nav-book-btn">
                             Book a Safari
                         </Link>
                     </div>
@@ -92,7 +92,7 @@ export default function Navbar() {
                         <i className="fab fa-whatsapp"></i>
                         WhatsApp Us
                     </a>
-                    <Link to="/book" className="btn btn-primary" onClick={handleLink}>
+                    <Link to="/contact" className="btn btn-primary" onClick={handleLink}>
                         Book a Safari
                     </Link>
                 </div>

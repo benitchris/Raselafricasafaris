@@ -63,7 +63,7 @@ export default function About() {
                             ))}
                         </div>
 
-                        <Link to="/book" className="btn btn-primary" id="about-enquire-btn">
+                        <Link to="/contact" className="btn btn-primary" id="about-enquire-btn">
                             <i className="fas fa-paper-plane"></i>
                             Send an Enquiry
                         </Link>

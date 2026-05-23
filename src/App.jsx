@@ -61,10 +61,10 @@ export default function App() {
                         </>
                     } />
                     <Route path="/about" element={
-                        <>
-                            <div className="reveal"><About /></div>
-                            <div className="reveal"><CoreValues /></div>
-                        </>
+                        <div className="reveal"><About /></div>
+                    } />
+                    <Route path="/core-values" element={
+                        <div className="reveal"><CoreValues /></div>
                     } />
                     <Route path="/destinations" element={
                         <div className="reveal"><Destinations /></div>
@@ -75,7 +75,7 @@ export default function App() {
                     <Route path="/experiences" element={
                         <div className="reveal"><Experiences /></div>
                     } />
-                    <Route path="/book" element={
+                    <Route path="/contact" element={
                         <div className="reveal"><BookingForm /></div>
                     } />
                 </Routes>
