@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { getActivitySlug } from '../data/activities';
 import ugandaImg from '../assets/Bwindi-Impenetrable-National-Park.webp';
 import kenyaImg from '../assets/lion2.webp';
 import rwandaImg from '../assets/forest.webp';
@@ -6,7 +7,7 @@ import tanzaniaImg from '../assets/buffalo1.webp';
 import congoImg from '../assets/monkey.webp';
 import './Destinations.css';
 
-const destinations = [
+export const destinations = [
     {
         name: 'Uganda — Pearl of Africa',
         country: 'East Africa',
@@ -81,7 +82,11 @@ export default function Destinations() {
                                 <h3 className="dest-name">{d.name}</h3>
                                 {d.tags && (
                                     <div className="dest-tags">
-                                        {d.tags.map(t => <span className="dest-tag" key={t}>{t}</span>)}
+                                        {d.tags.map(t => (
+                                            <Link to={`/activity/${getActivitySlug(t)}`} className="dest-tag" key={t}>
+                                                {t}
+                                            </Link>
+                                        ))}
                                     </div>
                                 )}
                                 <p className="dest-desc">{d.desc}</p>

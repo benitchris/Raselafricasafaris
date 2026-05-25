@@ -11,6 +11,7 @@ import Experiences from './components/Experiences';
 import Testimonials from './components/Testimonials';
 import BookingForm from './components/BookingForm';
 import Footer from './components/Footer';
+import ActivityDetail from './components/ActivityDetail';
 
 const WA_NUMBER = '256755623922';
 const WA_MESSAGE = encodeURIComponent('Hello! I would like to enquire about a safari package.');
@@ -77,6 +78,9 @@ export default function App() {
                     } />
                     <Route path="/contact" element={
                         <div className="reveal"><BookingForm /></div>
+                    } />
+                    <Route path="/activity/:slug" element={
+                        <div className="reveal"><ActivityDetail /></div>
                     } />
                 </Routes>
             </main>

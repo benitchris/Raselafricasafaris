@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './BookingForm.css';
 
 const safariOptions = [
@@ -12,6 +13,7 @@ const safariOptions = [
 ];
 
 export default function BookingForm() {
+    const location = useLocation();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -21,6 +23,27 @@ export default function BookingForm() {
         date: '',
         message: '',
     });
+
+    useEffect(() => {
+        if (location.state) {
+            if (location.state.safari) {
+                if (safariOptions.includes(location.state.safari)) {
+                    setFormData(prev => ({ ...prev, safari: location.state.safari }));
+                } else {
+                    setFormData(prev => ({
+                        ...prev,
+                        safari: 'Customized Safari (Tailor-made)',
+                        message: prev.message 
+                            ? prev.message 
+                            : `Hello! I'm interested in booking a custom tour centered around: ${location.state.safari}. Please share itinerary suggestions.`
+                    }));
+                }
+            }
+            if (location.state.message) {
+                setFormData(prev => ({ ...prev, message: location.state.message }));
+            }
+        }
+    }, [location.state]);
     const [status, setStatus] = useState('');
 
     const handleChange = (e) => {

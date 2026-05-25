@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { getActivitySlug } from '../data/activities';
 import gorillaImg from '../assets/gorilla.webp';
 import migrationImg from '../assets/sunset-in-savanna.webp';
 import raftingImg from '../assets/splashing-river.webp';
@@ -44,17 +46,17 @@ export default function Experiences() {
 
                 <div className="exp-grid">
                     {experiences.map((e, i) => (
-                        <div className="exp-card" key={i}>
+                        <Link to={`/activity/${getActivitySlug(e.title)}`} className="exp-card" key={i}>
                             <img src={e.image} alt={e.title} className="exp-img" style={e.imgStyle} />
                             <div className="exp-overlay" />
                             <div className="exp-content">
                                 <div className="exp-location">{e.location}</div>
                                 <h3 className="exp-title">{e.title}</h3>
-                                <a href="#contact" className="exp-arrow" id={`exp-link-${i}`}>
+                                <span className="exp-arrow" id={`exp-link-${i}`}>
                                     <i className="fas fa-arrow-right"></i>
-                                </a>
+                                </span>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

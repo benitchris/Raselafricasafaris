@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { getActivitySlug } from '../data/activities';
 import gorillaImg from '../assets/gorilla2.webp';
 import kenyaImg from '../assets/lions.webp';
 import eastAfricaImg from '../assets/chimpanzee1.webp';
@@ -12,7 +13,7 @@ import kigaliImg from '../assets/kigali.webp';
 import jinjaImg from '../assets/jinja.webp';
 import './Tours.css';
 
-const tours = [
+export const tours = [
     {
         name: '3-Day Gorilla Trekking Safari',
         location: 'Bwindi, Uganda',
@@ -130,7 +131,9 @@ export default function Tours() {
                                 <p className="tour-desc">{t.desc}</p>
                                 <div className="tour-highlights">
                                     {t.tags.map(tag => (
-                                        <span className="tour-tag" key={tag}>{tag}</span>
+                                        <Link to={`/activity/${getActivitySlug(tag)}`} className="tour-tag" key={tag}>
+                                            {tag}
+                                        </Link>
                                     ))}
                                 </div>
                                 <div className="tour-footer">
