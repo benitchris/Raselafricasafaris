@@ -32,6 +32,10 @@ import gazelle2 from '../assets/gazelle2.webp';
 import sunset   from '../assets/sunset-in-savanna.webp';
 import zanzibar from '../assets/zanzibar.webp';
 import zanzibarBeach from '../assets/zanzibar-beach.webp';
+import zanzibar1 from '../assets/zanzibar1.webp';
+import zanzibar2 from '../assets/zanzibar2.webp';
+import zanzibar3 from '../assets/zanzibar3.webp';
+import zanzibar4 from '../assets/zanzibar4.webp';
 import hippo    from '../assets/hippo-in-a-river.webp';
 import splashing from '../assets/splashing-river.webp';
 import jinja    from '../assets/jinja.webp';
@@ -224,7 +228,7 @@ export const activities = {
             ]
         },
         fallbackImage: 'sundowner',
-        gallery: [sunset, zanzibar, zanzibarBeach, chimp],
+        gallery: [zanzibar1, zanzibar2, zanzibar3, zanzibar4, zanzibar, zanzibarBeach],
     },
     'river-nile': {
         title: 'Nile River & Water Adventures',
