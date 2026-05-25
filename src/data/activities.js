@@ -3,6 +3,40 @@
  * Provides rich metadata, descriptions, highlights, practical advice, and custom styling for each activity.
  */
 
+// ── Gallery image imports ──────────────────────────────────────────────────
+import gorilla  from '../assets/gorilla.webp';
+import gorilla1 from '../assets/gorilla1.webp';
+import gorilla2 from '../assets/gorilla2.webp';
+import gorilla3 from '../assets/gorilla3.webp';
+import gorilla4 from '../assets/gorilla4.webp';
+import chimp    from '../assets/chimp.webp';
+import chimp1   from '../assets/chimpanzee1.webp';
+import forestImg from '../assets/forest.webp';
+import rwenzo3  from '../assets/rwenzo3.webp';
+import rwenzoriEntrance from '../assets/rwenzori-entrance.webp';
+import lakeBunyonyi from '../assets/lake-bunyonyi.webp';
+import lakeBunyonyi2 from '../assets/lake-bunyonyi2.webp';
+import masai    from '../assets/masai.webp';
+import kigali   from '../assets/kigali.webp';
+import lions    from '../assets/lions.webp';
+import lion2    from '../assets/lion2.webp';
+import elephant from '../assets/elephant.webp';
+import giraffe  from '../assets/giraffe.webp';
+import buffalo1 from '../assets/buffalo1.webp';
+import buffalo2 from '../assets/buffalo2.webp';
+import gazelle  from '../assets/gazelle.webp';
+import gazelle2 from '../assets/gazelle2.webp';
+import sunset   from '../assets/sunset-in-savanna.webp';
+import zanzibar from '../assets/zanzibar.webp';
+import zanzibarBeach from '../assets/zanzibar-beach.webp';
+import hippo    from '../assets/hippo-in-a-river.webp';
+import splashing from '../assets/splashing-river.webp';
+import jinja    from '../assets/jinja.webp';
+import jinjaB   from '../assets/jinja-bridge.webp';
+import cows     from '../assets/cows-alongside-river.webp';
+import murchisonFalls from '../assets/murchison-falls.webp';
+// ──────────────────────────────────────────────────────────────────────────
+
 export const activities = {
     'gorillas': {
         title: 'Gorilla Trekking',
@@ -32,7 +66,8 @@ export const activities = {
                 'Waterproof daypack, insect repellent, and plenty of drinking water.'
             ]
         },
-        fallbackImage: 'gorillas'
+        fallbackImage: 'gorillas',
+        gallery: [gorilla, gorilla1, gorilla2, gorilla3, gorilla4],
     },
     'forest-walk': {
         title: 'Forest Walks & Trekking',
@@ -62,7 +97,8 @@ export const activities = {
                 'Thermal underwear and a high-quality sleeping bag for mountain treks.'
             ]
         },
-        fallbackImage: 'forest'
+        fallbackImage: 'forest',
+        gallery: [forestImg, rwenzo3, rwenzoriEntrance, lakeBunyonyi, lakeBunyonyi2],
     },
     'cultural-visit': {
         title: 'Cultural & Community Visits',
@@ -92,7 +128,8 @@ export const activities = {
                 'Hand sanitizer and biodegradable wet wipes.'
             ]
         },
-        fallbackImage: 'culture'
+        fallbackImage: 'culture',
+        gallery: [masai, kigali, lakeBunyonyi, chimp1],
     },
     'big-5': {
         title: 'Big 5 Safaris & Wildebeest Migration',
@@ -122,7 +159,8 @@ export const activities = {
                 'Wide-brimmed safari hat, sunglasses, and high SPF sunscreen.'
             ]
         },
-        fallbackImage: 'savannah'
+        fallbackImage: 'savannah',
+        gallery: [lions, lion2, elephant, giraffe, buffalo1, gazelle],
     },
     'game-drives': {
         title: 'Classic Savannah Game Drives',
@@ -152,7 +190,8 @@ export const activities = {
                 'Personal reusable water bottle to stay hydrated.'
             ]
         },
-        fallbackImage: 'gamedrive'
+        fallbackImage: 'gamedrive',
+        gallery: [lion2, elephant, giraffe, buffalo2, gazelle2],
     },
     'sundowners': {
         title: 'Sundowners & Wilderness Luxury',
@@ -181,7 +220,8 @@ export const activities = {
                 'Insect repellent for the evening transition.'
             ]
         },
-        fallbackImage: 'sundowner'
+        fallbackImage: 'sundowner',
+        gallery: [sunset, zanzibar, zanzibarBeach, chimp],
     },
     'river-nile': {
         title: 'Nile River & Water Adventures',
@@ -211,7 +251,8 @@ export const activities = {
                 'Waterproof pouch for phones or action cameras.'
             ]
         },
-        fallbackImage: 'rafting'
+        fallbackImage: 'rafting',
+        gallery: [hippo, splashing, jinja, jinjaB, cows],
     },
     'murchison-falls': {
         title: 'Murchison Falls National Park',
@@ -240,7 +281,8 @@ export const activities = {
                 'Swimwear for the gorgeous lodge pool.'
             ]
         },
-        fallbackImage: 'rafting'
+        fallbackImage: 'rafting',
+        gallery: [murchisonFalls, hippo, elephant, splashing],
     }
 };
 

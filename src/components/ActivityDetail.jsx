@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { activities, getActivitySlug } from '../data/activities';
 import { tours } from './Tours';
@@ -14,10 +14,12 @@ import lodge5 from '../assets/murchison-lodge5.webp';
 export default function ActivityDetail() {
     const { slug } = useParams();
     const navigate = useNavigate();
+    const [activeImgIndex, setActiveImgIndex] = useState(0);
 
-    // Scroll to top on page load
+    // Scroll to top and reset active image on page load or slug change
     useEffect(() => {
         window.scrollTo(0, 0);
+        setActiveImgIndex(0);
     }, [slug]);
 
     const activity = activities[slug];
@@ -127,19 +129,52 @@ export default function ActivityDetail() {
                             ))}
                         </div>
 
-                        {/* Visual Themed Showcase / Placeholder (Only for non-Murchison activities since Murchison has custom gallery below) */}
-                        {slug !== 'murchison-falls' && (
-                            <div className="visual-showcase-container reveal active">
-                                <div className="glass-showcase-card">
-                                    <div className="showcase-icon">
-                                        <i className={activity.icon}></i>
+                        {/* Interactive Visual Gallery Preview */}
+                        {activity.gallery && activity.gallery.length > 0 && (
+                            <div className="activity-gallery-showcase reveal active">
+                                <div className="main-preview-container">
+                                    <img 
+                                        src={activity.gallery[activeImgIndex]} 
+                                        alt={`${activity.title} view ${activeImgIndex + 1}`} 
+                                        className="main-preview-img" 
+                                    />
+                                    <div className="gallery-counter">
+                                        {activeImgIndex + 1} / {activity.gallery.length}
                                     </div>
-                                    <div className="showcase-overlay-text">
-                                        <h3>Visual Gallery Preview</h3>
-                                        <p>Our safari photography team is compiling breathtaking high-resolution images for the {activity.title} experience. Photos will be uploaded shortly!</p>
-                                    </div>
-                                    <div className="showcase-glow-effect"></div>
+                                    
+                                    {activity.gallery.length > 1 && (
+                                        <>
+                                            <button 
+                                                className="gallery-nav-btn prev" 
+                                                onClick={() => setActiveImgIndex((prev) => (prev === 0 ? activity.gallery.length - 1 : prev - 1))}
+                                                aria-label="Previous image"
+                                            >
+                                                <i className="fas fa-chevron-left"></i>
+                                            </button>
+                                            <button 
+                                                className="gallery-nav-btn next" 
+                                                onClick={() => setActiveImgIndex((prev) => (prev === activity.gallery.length - 1 ? 0 : prev + 1))}
+                                                aria-label="Next image"
+                                            >
+                                                <i className="fas fa-chevron-right"></i>
+                                            </button>
+                                        </>
+                                    )}
                                 </div>
+                                
+                                {activity.gallery.length > 1 && (
+                                    <div className="gallery-thumbnails-strip">
+                                        {activity.gallery.map((img, idx) => (
+                                            <button 
+                                                key={idx}
+                                                className={`gallery-thumb-btn ${idx === activeImgIndex ? 'active' : ''}`}
+                                                onClick={() => setActiveImgIndex(idx)}
+                                            >
+                                                <img src={img} alt={`${activity.title} thumbnail ${idx + 1}`} />
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         )}
 
