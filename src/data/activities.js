@@ -212,6 +212,35 @@ export const activities = {
             ]
         },
         fallbackImage: 'rafting'
+    },
+    'murchison-falls': {
+        title: 'Murchison Falls National Park',
+        subtitle: 'The world\'s most powerful waterfall and legendary savannah safaris.',
+        icon: 'fas fa-water',
+        themeColor: '202, 60%, 42%', // Nile Blue
+        intro: 'Witness the spectacular point where the entire River Nile forces its way through a tiny 7-meter gap, plunging 43 meters below with an explosive roar, surrounded by abundant savannah wildlife and premium luxury eco-lodges.',
+        overview: [
+            'Murchison Falls National Park is Uganda\'s largest and oldest protected area, offering a breathtaking blend of roaring water, sweeping savannahs, and dense tropical forests. The park\'s crown jewel is Murchison Falls, where the river Nile is squeezed into a tight canyon, producing a spectacular display of raw natural force.',
+            'Your safari adventure here is complemented by stays in world-class luxury riverfront lodges. Relax in hand-crafted suites overlooking the Nile, where elephants come to bathe at sunset, hippos call in the distance, and the high-end hospitality makes your African wilderness experience truly unforgettable.'
+        ],
+        highlights: [
+            'Take a boat safari up-river to the bottom of the explosive Murchison Falls.',
+            'Spot the Big 5 on classic game drives across the golden savannah plains.',
+            'Trek chimpanzees in the nearby lush Budongo Forest Reserve.',
+            'Stay in our hand-selected luxury lodge featuring stunning Nile vistas, a pool, and private decks.'
+        ],
+        practicalInfo: {
+            bestTime: 'Dry seasons (June to September, and December to February) for peak game viewing.',
+            difficulty: 'Easy. Ideal for game drives, boat cruises, and relaxing lodge stays.',
+            permits: 'National Park entry fees apply (fully included in our packages).',
+            packing: [
+                'Neutral-colored savannah wear.',
+                'Good binoculars and camera for wildlife spotting.',
+                'Lightweight, breathable clothing and a sunhat.',
+                'Swimwear for the gorgeous lodge pool.'
+            ]
+        },
+        fallbackImage: 'rafting'
     }
 };
 
@@ -224,6 +253,7 @@ export function getActivitySlug(tag) {
     if (!tag) return 'big-5';
     const t = tag.toLowerCase().trim();
     
+    if (t.includes('murchison') || t.includes('falls')) return 'murchison-falls';
     if (t.includes('gorilla')) return 'gorillas';
     
     if (t.includes('forest') || 

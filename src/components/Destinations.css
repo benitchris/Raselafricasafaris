@@ -40,15 +40,7 @@
     border-radius: var(--radius-lg);
     overflow: hidden;
     cursor: pointer;
-}
-
-.dest-card:first-child {
-    grid-column: span 2;
-    min-height: 380px;
-}
-
-.dest-card:not(:first-child) {
-    min-height: 280px;
+    min-height: 320px;
 }
 
 .dest-img {
@@ -111,9 +103,7 @@
     line-height: 1.2;
 }
 
-.dest-card:first-child .dest-name {
-    font-size: 2rem;
-}
+/* Clean single-line divider spacing */
 
 .dest-desc {
     font-size: 0.875rem;
@@ -201,9 +191,7 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    .dest-card:first-child {
-        grid-column: span 2;
-    }
+    /* symmetric columns */
 }
 
 @media (max-width: 600px) {
@@ -212,13 +200,8 @@
         gap: 14px;
     }
 
-    .dest-card:first-child {
-        grid-column: span 1;
-        min-height: 280px;
-    }
-
-    .dest-card:not(:first-child) {
-        min-height: 240px;
+    .dest-card {
+        min-height: 260px;
     }
 
     /* Always show content on touch (no hover) */

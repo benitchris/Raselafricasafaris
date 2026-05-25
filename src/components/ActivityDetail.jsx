@@ -4,6 +4,13 @@ import { activities, getActivitySlug } from '../data/activities';
 import { tours } from './Tours';
 import './ActivityDetail.css';
 
+// Lodge image imports for Murchison Falls
+import lodge1 from '../assets/murchison-lodge1.webp';
+import lodge2 from '../assets/murchison-lodge2.webp';
+import lodge3 from '../assets/murchison-lodge3.webp';
+import lodge4 from '../assets/murchison-lodge4.webp';
+import lodge5 from '../assets/murchison-lodge5.webp';
+
 export default function ActivityDetail() {
     const { slug } = useParams();
     const navigate = useNavigate();
@@ -120,19 +127,21 @@ export default function ActivityDetail() {
                             ))}
                         </div>
 
-                        {/* Visual Themed Showcase / Placeholder */}
-                        <div className="visual-showcase-container reveal active">
-                            <div className="glass-showcase-card">
-                                <div className="showcase-icon">
-                                    <i className={activity.icon}></i>
+                        {/* Visual Themed Showcase / Placeholder (Only for non-Murchison activities since Murchison has custom gallery below) */}
+                        {slug !== 'murchison-falls' && (
+                            <div className="visual-showcase-container reveal active">
+                                <div className="glass-showcase-card">
+                                    <div className="showcase-icon">
+                                        <i className={activity.icon}></i>
+                                    </div>
+                                    <div className="showcase-overlay-text">
+                                        <h3>Visual Gallery Preview</h3>
+                                        <p>Our safari photography team is compiling breathtaking high-resolution images for the {activity.title} experience. Photos will be uploaded shortly!</p>
+                                    </div>
+                                    <div className="showcase-glow-effect"></div>
                                 </div>
-                                <div className="showcase-overlay-text">
-                                    <h3>Visual Gallery Preview</h3>
-                                    <p>Our safari photography team is compiling breathtaking high-resolution images for the {activity.title} experience. Photos will be uploaded shortly!</p>
-                                </div>
-                                <div className="showcase-glow-effect"></div>
                             </div>
-                        </div>
+                        )}
 
                         <div className="highlights-card reveal active">
                             <h2 className="activity-section-title">
@@ -197,6 +206,56 @@ export default function ActivityDetail() {
 
                 </div>
             </section>
+
+            {/* Custom Lodge Showcase Section (Exclusive for Murchison Falls) */}
+            {slug === 'murchison-falls' && (
+                <section className="lodge-showcase-section section">
+                    <div className="container">
+                        <div className="section-header-center text-center reveal active">
+                            <span className="section-label">Luxury Accommodations</span>
+                            <h2 className="section-title">Where You'll <span>Sleep & Relax</span></h2>
+                            <p className="section-subtitle">
+                                Experience five-star wilderness hospitality. After your game drives, return to our hand-selected luxury lodge nestled on the banks of the Nile.
+                            </p>
+                        </div>
+
+                        <div className="lodge-gallery-grid reveal active">
+                            <div className="lodge-gallery-main">
+                                <img src={lodge1} alt="Luxury River Lodge Suite" className="lodge-img-large" />
+                                <div className="lodge-tag-floating">Principal Suite</div>
+                            </div>
+                            <div className="lodge-gallery-thumbnails">
+                                <div className="thumb-item">
+                                    <img src={lodge2} alt="Nile View Lounge" />
+                                    <div className="thumb-caption">Infinity Pool & Deck</div>
+                                </div>
+                                <div className="thumb-item">
+                                    <img src={lodge3} alt="Wildlife Viewing Deck" />
+                                    <div className="thumb-caption">Private River View</div>
+                                </div>
+                                <div className="thumb-item">
+                                    <img src={lodge4} alt="Gourmet Dining Room" />
+                                    <div className="thumb-caption">Sundowner Deck</div>
+                                </div>
+                                <div className="thumb-item">
+                                    <img src={lodge5} alt="Cozy Wilderness Fires" />
+                                    <div className="thumb-caption">En-Suite Bath Oasis</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="lodge-description-card reveal active">
+                            <h3>Paraa Riverfront Eco-Lodge</h3>
+                            <p>
+                                Nestled high on the north bank of the River Nile, this luxury eco-lodge blends modern architectural sophistication with organic African materials. Every room offers a panoramic, private balcony overlooking the river, allowing you to witness herds of elephants, bathing buffaloes, and splashing hippos from the comfort of your plush bed.
+                            </p>
+                            <p>
+                                Amenities include a dramatic infinity pool merging with the Nile view, a gourmet open-air restaurant serving locally sourced international fusion cuisine, a luxurious bush-spa, and a floating sunset deck perfect for evening sundowners under the starlit sky.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* Related Tours Section */}
             {relatedTours.length > 0 && (

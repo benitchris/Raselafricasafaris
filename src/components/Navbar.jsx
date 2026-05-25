@@ -31,7 +31,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link to="/" className="nav-logo" onClick={handleLink}>
                         <img
-                            src={`${import.meta.env.BASE_URL}logo.png`}
+                            src={`${import.meta.env.BASE_URL}logo.webp`}
                             alt="Rasel Africa Safaris"
                             className="nav-logo-img"
                         />

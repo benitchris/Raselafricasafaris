@@ -5,6 +5,7 @@ import kenyaImg from '../assets/lion2.webp';
 import rwandaImg from '../assets/forest.webp';
 import tanzaniaImg from '../assets/buffalo1.webp';
 import congoImg from '../assets/monkey.webp';
+import murchisonImg from '../assets/murchison-falls.webp';
 import './Destinations.css';
 
 export const destinations = [
@@ -14,7 +15,17 @@ export const destinations = [
         desc: 'Home to 50% of the world\'s remaining mountain gorillas, chimpanzees, source of the Nile, and some of Africa\'s most diverse wildlife. A bucket-list destination for all.',
         tags: ['Gorilla Trekking', 'Chimps', 'River Nile'],
         image: ugandaImg,
-        span: true,
+        span: false,
+    },
+    {
+        name: 'Murchison Falls National Park',
+        country: 'Uganda',
+        desc: 'Witness the mighty River Nile explode through a narrow 7-meter gorge. An iconic wildlife haven with roaring falls and luxury riverfront lodges.',
+        tags: ['Murchison Falls', 'River Nile', 'Game Drives'],
+        image: murchisonImg,
+        span: false,
+        linkTo: '/activity/murchison-falls',
+        linkLabel: 'Explore Lodge & Tours',
     },
     {
         name: 'Kenya',
@@ -68,7 +79,6 @@ export default function Destinations() {
                         <div
                             className="dest-card reveal"
                             key={i}
-                            style={d.span ? { gridColumn: 'span 2' } : {}}
                         >
                             <img
                                 src={d.image}
@@ -90,8 +100,8 @@ export default function Destinations() {
                                     </div>
                                 )}
                                 <p className="dest-desc">{d.desc}</p>
-                                <Link to="/tours" className="dest-link">
-                                    Explore Tours <i className="fas fa-arrow-right"></i>
+                                <Link to={d.linkTo || '/tours'} className="dest-link">
+                                    {d.linkLabel || 'Explore Tours'} <i className="fas fa-arrow-right"></i>
                                 </Link>
                             </div>
                         </div>
