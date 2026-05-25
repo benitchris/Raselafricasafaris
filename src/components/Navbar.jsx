@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const navLinks = [
-    { label: 'Destinations', to: '/destinations' },
-    { label: 'Tours', to: '/tours' },
-    { label: 'Experiences', to: '/experiences' },
+    { label: 'Destinations', to: '/#destinations' },
+    { label: 'Tours', to: '/#tours' },
+    { label: 'Experiences', to: '/#experiences' },
     { label: 'About Us', to: '/about' },
     { label: 'Core Values', to: '/core-values' },
-    { label: 'Contact', to: '/contact' },
+    { label: 'Contact', to: '/#contact' },
 ];
 
 export default function Navbar() {
+    const location = useLocation();
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -42,13 +43,25 @@ export default function Navbar() {
 
                     {/* Desktop Links */}
                     <ul className="nav-links">
-                        {navLinks.map(l => (
-                            <li key={l.to}>
-                                <NavLink to={l.to} end={l.to === '/'}>
-                                    {l.label}
-                                </NavLink>
-                            </li>
-                        ))}
+                        {navLinks.map(l => {
+                            const isHashLink = l.to.startsWith('/#');
+                            const targetHash = isHashLink ? l.to.split('#')[1] : '';
+                            const isActive = isHashLink
+                                ? (location.pathname === '/' && location.hash === `#${targetHash}`)
+                                : (location.pathname === l.to);
+
+                            return (
+                                <li key={l.to}>
+                                    <Link 
+                                        to={l.to} 
+                                        className={isActive ? 'active' : ''}
+                                        onClick={handleLink}
+                                    >
+                                        {l.label}
+                                    </Link>
+                                </li>
+                            );
+                        })}
                     </ul>
 
                     {/* Desktop CTA */}
@@ -77,11 +90,24 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 <div className={`nav-mobile-menu${menuOpen ? ' open' : ''}`}>
-                    {navLinks.map(l => (
-                        <NavLink key={l.to} to={l.to} end={l.to === '/'} onClick={handleLink}>
-                            {l.label}
-                        </NavLink>
-                    ))}
+                    {navLinks.map(l => {
+                        const isHashLink = l.to.startsWith('/#');
+                        const targetHash = isHashLink ? l.to.split('#')[1] : '';
+                        const isActive = isHashLink
+                            ? (location.pathname === '/' && location.hash === `#${targetHash}`)
+                            : (location.pathname === l.to);
+
+                        return (
+                            <Link 
+                                key={l.to} 
+                                to={l.to} 
+                                className={isActive ? 'active' : ''} 
+                                onClick={handleLink}
+                            >
+                                {l.label}
+                            </Link>
+                        );
+                    })}
                     <a
                         href="https://wa.me/256755623922?text=Hello!%20I%20would%20like%20to%20enquire%20about%20a%20safari%20package."
                         className="btn mobile-wa-btn"

@@ -20,8 +20,19 @@ export default function App() {
     const location = useLocation();
 
     useEffect(() => {
-        // Scroll to top instantly on page navigation
-        window.scrollTo(0, 0);
+        // Handle hash scrolling if present, otherwise scroll to top
+        const hash = location.hash;
+        if (hash) {
+            const id = hash.replace('#', '');
+            const element = document.getElementById(id);
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        } else {
+            window.scrollTo(0, 0);
+        }
 
         // Re-run the reveal animations intersection observer
         const observerOptions = {
@@ -44,7 +55,7 @@ export default function App() {
         });
 
         return () => observer.disconnect();
-    }, [location.pathname]);
+    }, [location.pathname, location.hash]);
 
     const isHome = location.pathname === '/';
 
@@ -58,7 +69,9 @@ export default function App() {
                             <Hero />
                             <div className="reveal"><Destinations /></div>
                             <div className="reveal"><Tours /></div>
+                            <div className="reveal"><Experiences /></div>
                             <div className="reveal"><Testimonials /></div>
+                            <div className="reveal"><BookingForm /></div>
                         </>
                     } />
                     <Route path="/about" element={
