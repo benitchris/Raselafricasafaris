@@ -18,6 +18,9 @@ import lakeBunyonyi from '../assets/lake-bunyonyi.webp';
 import lakeBunyonyi2 from '../assets/lake-bunyonyi2.webp';
 import masai    from '../assets/masai.webp';
 import kigali   from '../assets/kigali.webp';
+import kigali1  from '../assets/kigali1.webp';
+import kigali2  from '../assets/kigali2.webp';
+import kigali3  from '../assets/kigali3.webp';
 import lions    from '../assets/lions.webp';
 import lion2    from '../assets/lion2.webp';
 import elephant from '../assets/elephant.webp';
@@ -129,7 +132,7 @@ export const activities = {
             ]
         },
         fallbackImage: 'culture',
-        gallery: [masai, kigali, lakeBunyonyi, chimp1],
+        gallery: [kigali, kigali1, kigali2, kigali3, masai, lakeBunyonyi],
     },
     'big-5': {
         title: 'Big 5 Safaris & Wildebeest Migration',
